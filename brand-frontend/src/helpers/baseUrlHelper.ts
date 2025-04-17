@@ -2,7 +2,7 @@ const protocol: string = import.meta.env.VITE_PROTOCOL ?? 'http';
 
 function getBaseUrl() {
   const domain: string =
-    import.meta.env.VITE_DOMAIN ?? 'localhost:8000';
+    import.meta.env.VITE_DOMAIN ?? 'localhost:8001';
 
   return `${protocol}://${domain}/api/`;
 }

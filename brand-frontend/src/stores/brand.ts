@@ -4,7 +4,7 @@ import type {Brand, BrandDto, Meta, Nullable, QueryParams} from "@/interfaces/br
 import useHashQueryParams from "@/composables/useHashQueryParams";
 import BrandService from "@/services/BrandService";
 
-type CountryState = {
+type BrandState = {
   brandList: Brand[];
   brand: Nullable<Brand>;
   requestQueryHash: Nullable<string>;
@@ -12,7 +12,7 @@ type CountryState = {
 };
 
 export const useBrandStore = defineStore('brand', {
-  state: (): CountryState => {
+  state: (): BrandState => {
     return {
       brandList: useSessionStorage<Brand[]>('brands', []).value,
       brand: null,
@@ -21,6 +21,8 @@ export const useBrandStore = defineStore('brand', {
     };
   },
   getters: {
+    getBrandList: (state: BrandState) =>
+      state.brandList ? state.brandList : [],
   },
   actions: {
     getList(params: QueryParams = {}) {
@@ -59,6 +61,15 @@ export const useBrandStore = defineStore('brand', {
           return data.data;
         }
       }) as Promise<Brand>;
+    },
+    async delete(id: number) {
+      return BrandService.delete(id).then((data) => {
+        this.brandList = this.getBrandList.filter(
+          (data) => data.brand_id !== id
+        );
+        if (this.meta) this.meta.total--;
+        return data.data;
+      });
     },
   },
 });

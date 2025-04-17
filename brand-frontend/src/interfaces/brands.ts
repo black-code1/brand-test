@@ -17,10 +17,6 @@ export interface QueryParams {
   page?: number;
   paginate?: number;
   filters?: never;
-  includes?: string[];
-  sorts?: string[];
-  scope?: string;
-  scope_id?: number;
   reload?: boolean;
   value?: string;
 }

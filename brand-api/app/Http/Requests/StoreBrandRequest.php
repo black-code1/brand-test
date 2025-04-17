@@ -11,7 +11,7 @@ class StoreBrandRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreBrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'brand_name' => ['required', 'numeric', 'exists:document_types,id'],
+            'brand_image' => ['required', 'string'],
+            'rating' => ['required', 'numeric'],
+            'iso_3166_2' => ['nullable','string','size:2'],
         ];
     }
 }

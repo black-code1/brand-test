@@ -40,6 +40,9 @@ class BrandController extends BaseController
         $brand = $this->brandRepository->store($request->validated());
 
         if ($brand) {
+            if ($request->hasFile('brand_image')) {
+                $brand->addMediaFromRequest('brand_image')->toMediaCollection('images');
+            }
             return (new BrandResource($brand))
                 ->response()
                 ->setStatusCode(Response::HTTP_CREATED);
@@ -67,6 +70,12 @@ class BrandController extends BaseController
         $brand = $this->brandRepository->update($brand->brand_id, $request->validated());
 
         if ($brand) {
+            if ($request->hasFile('brand_image')) {
+                $brand->clearMediaCollection('brand_image');
+                // Add new media
+                $brand->addMediaFromRequest('brand_logo')
+                    ->toMediaCollection('brand_logo');
+            }
             return new BrandResource($brand);
         }
 

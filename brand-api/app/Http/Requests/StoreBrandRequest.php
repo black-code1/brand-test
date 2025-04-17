@@ -23,7 +23,7 @@ class StoreBrandRequest extends FormRequest
     {
         return [
             'brand_name' => ['required', 'numeric', 'exists:document_types,id'],
-            'brand_image' => ['required', 'string'],
+            'brand_image' => ['nullable', 'image'],
             'rating' => ['required', 'numeric'],
             'iso_3166_2' => ['nullable','string','size:2'],
         ];

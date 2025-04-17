@@ -17,19 +17,19 @@ class BrandSeeder extends Seeder
         $brands = [
             [
                 'brand_name' => Str::random(6),
-                'brand_image' => '',
+                'brand_image' => null,
                 'rating' => 6,
                 'created_at' => now(),
             ],
             [
                 'brand_name' => Str::random(6),
-                'brand_image' => '',
+                'brand_image' => null,
                 'rating' => 6,
                 'created_at' => now(),
             ],
             [
                 'brand_name' => Str::random(6),
-                'brand_image' => '',
+                'brand_image' => null,
                 'rating' => 6,
                 'created_at' => now(),
             ],

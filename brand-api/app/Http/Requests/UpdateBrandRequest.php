@@ -23,7 +23,7 @@ class UpdateBrandRequest extends FormRequest
     {
         return [
             'brand_name' => ['nullable', 'string'],
-            'brand_image' => ['nullable', 'string'],
+            'brand_image' => ['nullable', 'image'],
             'rating' => ['nullable', 'numeric'],
             'iso_3166_2' => ['nullable','string','size:2'],
         ];

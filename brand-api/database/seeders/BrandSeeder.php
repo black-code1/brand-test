@@ -19,19 +19,19 @@ class BrandSeeder extends Seeder
                 'brand_name' => Str::random(6),
                 'brand_image' => null,
                 'rating' => 6,
-                'created_at' => now(),
+                'iso_3166_2' => 'CM',
             ],
             [
                 'brand_name' => Str::random(6),
                 'brand_image' => null,
                 'rating' => 6,
-                'created_at' => now(),
+                'iso_3166_2' => null
             ],
             [
                 'brand_name' => Str::random(6),
                 'brand_image' => null,
                 'rating' => 6,
-                'created_at' => now(),
+                'iso_3166_2' => null
             ],
         ];
 

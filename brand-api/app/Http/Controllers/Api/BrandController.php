@@ -11,6 +11,7 @@ use App\Models\Brand;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class BrandController extends BaseController
@@ -25,8 +26,9 @@ class BrandController extends BaseController
         $iso_3166_2 = $request->header('CF-IPCountry');
 
         if ($iso_3166_2) {
-            $brands = $this->brandRepository->getByAttribute('iso_3166_2',$iso_3166_2);
-            return BrandResource::collection($brands);
+            $paginate = $request->query('paginate') ?? 10;
+
+            return BrandResource::collection($this->brandRepository->getBrandsByCountryIso($iso_3166_2, (int) $paginate));
         }
         return BrandResource::collection($this->brandRepository->all($request->query() ?? []));
     }

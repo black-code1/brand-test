@@ -1,6 +1,6 @@
 import md5 from 'md5'
-import type { QueryParams } from '@/interfaces/common'
 import useRequestQueryParams from './useRequestQueryParams'
+import type {QueryParams} from "@/interfaces/brands";
 
 export default (queryParams: QueryParams = {}) => {
   if (queryParams) {

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('brand_name');
             $table->string('brand_image')->nullable();
             $table->integer('rating')->default(0);
-            $table->string('iso_3166_2', 2)->index();
+            $table->string('iso_3166_2', 2)->index()->nullable();
             $table->timestamps();
         });
     }

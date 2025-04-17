@@ -56,10 +56,8 @@ class BrandController extends BaseController
     /**
      * Display the specified resource.
      */
-    public function show(int $id): BrandResource
+    public function show(Brand $brand): BrandResource
     {
-        $brand  = $this->brandRepository->getById($id);
-
         return new BrandResource($brand);
     }
 

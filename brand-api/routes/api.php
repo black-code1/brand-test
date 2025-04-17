@@ -8,5 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::apiResource('brands', BrandController::class);
+Route::middleware('api')->group(function () {
+    Route::apiResource('brands', BrandController::class);
+});
 

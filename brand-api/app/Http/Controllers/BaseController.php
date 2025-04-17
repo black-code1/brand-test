@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller as IlluminateController;
 
-class BaseController extends Controller
+abstract class BaseController extends IlluminateController
 {
     protected function errorMessage(string $message, int $status = 400): JsonResponse
     {

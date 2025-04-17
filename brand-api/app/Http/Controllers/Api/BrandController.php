@@ -22,6 +22,12 @@ class BrandController extends BaseController
      */
     public function index(Request $request): ResourceCollection
     {
+        $iso_3166_2 = $request->header('CF-IPCountry');
+
+        if ($iso_3166_2) {
+            $brands = $this->brandRepository->getByAttribute('iso_3166_2',$iso_3166_2);
+            return BrandResource::collection($brands);
+        }
         return BrandResource::collection($this->brandRepository->all($request->query() ?? []));
     }
 

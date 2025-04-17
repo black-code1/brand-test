@@ -18,7 +18,7 @@ class BrandResource extends JsonResource
             'brand_id' => $this->resource->brand_id,
             'brand_name' => $this->resource->brand_name,
             'brand_image' => $this->resource->brand_image,
-            'brand_rating' => $this->resource->brand_rating,
+            'rating' => $this->resource->rating,
             'iso_3166_2' => $this->resource->iso_3166_2,
             'created_at' => $this->resource->created_at,
             'updated_at' => $this->resource->updated_at,

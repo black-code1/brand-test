@@ -14,11 +14,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
     "@types/md5": "^2.3.5",
     "@vueuse/core": "^13.1.0",
     "axios": "^1.8.4",
     "mosha-vue-toastify": "^1.0.23",
     "pinia": "^3.0.1",
+    "tailwindcss": "^4.1.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

@@ -51,4 +51,9 @@ class Brand extends Model implements HasMedia
     {
         $this->addMediaCollection('images');
     }
+
+    public function getBrandImageUrlAttribute(): ?string
+    {
+        return $this->getMedia()->last()?->getUrl('web');
+    }
 }

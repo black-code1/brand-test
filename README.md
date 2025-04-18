@@ -2,6 +2,7 @@
 - Requirements php8.2+ and latest version of composer
 - `cd ./brand-api`
 - Copy the .env.example lines in the .env file and replace the following keys `DB_DATABASE` with your database name `DB_USERNAME` with you mysql username and `DB_PASSWORD` with your mysql username password
+- Run `composer install`
 - Run `php artisan migrate:fresh --seed`
 - Run `php artisan serve`
 - On postman, use this base url `http://localhost:8001/api` to test the api

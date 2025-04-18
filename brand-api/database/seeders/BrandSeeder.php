@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -16,25 +17,28 @@ class BrandSeeder extends Seeder
     {
         $brands = [
             [
-                'brand_name' => Str::random(6),
+                'brand_name' => 'brand-1',
                 'brand_image' => null,
                 'rating' => 6,
                 'iso_3166_2' => 'CM',
             ],
             [
-                'brand_name' => Str::random(6),
+                'brand_name' => 'brand-2',
                 'brand_image' => null,
                 'rating' => 6,
                 'iso_3166_2' => null
             ],
             [
-                'brand_name' => Str::random(6),
+                'brand_name' => 'brand-3',
                 'brand_image' => null,
                 'rating' => 6,
                 'iso_3166_2' => null
             ],
         ];
 
-        DB::table('brands')->upsert($brands, ['brand_name']);
+//        DB::table('brands')->upsert($brands, ['brand_name']);
+        foreach ($brands as $brand) {
+            Brand::create($brand)->addMedia(storage_path('media/' . $brand['brand_name'] . '.jpg'))->toMediaCollection();
+        }
     }
 }

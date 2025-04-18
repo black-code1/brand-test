@@ -73,8 +73,8 @@ class BrandController extends BaseController
             if ($request->hasFile('brand_image')) {
                 $brand->clearMediaCollection('brand_image');
                 // Add new media
-                $brand->addMediaFromRequest('brand_logo')
-                    ->toMediaCollection('brand_logo');
+                $brand->addMediaFromRequest('brand_image')
+                    ->toMediaCollection('images');
             }
             return new BrandResource($brand);
         }

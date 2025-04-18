@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Spatie\Image\Exceptions\InvalidManipulation;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -21,7 +22,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class Brand extends Model
+class Brand extends Model implements HasMedia
 {
     use InteractsWithMedia;
     /**
